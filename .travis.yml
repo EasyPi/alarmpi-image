@@ -1,0 +1,17 @@
+sudo: required
+before_install:
+- sudo apt-get update -q
+- sudo apt-get install -y bsdtar dosfstools
+script:
+- sudo ./build.sh ArchLinuxARM-rpi-latest
+- sudo ./build.sh ArchLinuxARM-rpi-2-latest
+deploy:
+  provider: releases
+  api_key:
+    secure: X8nvB8l1KJiAegH5MWa8B2FxypwFICzhVcxuZBNXZnakQRa4+dEQ4es93CxeSnDvLsSnlP89Yr0AlSGx1tJdIe/IaoNm+v0d4rOiUQ5h7AEWwfRB+E4zXG77H9pX8xcIW7AbcnWIsdxXiUPrpPBM7U+XB1uVKXxfQNoQIMlLwecLkSzAMx44OTUh62ZXFaxJnpK4xN+q70UCvLvKVMbOcM4v/tgwAqtniXKZYjTyKhndsrY/Y1OLQz+5enCNVxCobgo2wmSwwh+V/MWskWsTQgBkoUxi8EjTWbiweoCosyBrGhDvU1obsvONayYJVPvrl41nJd1S/SGQWZwLL32Vtdw4JquDcM/Xjvha9s7m0f/DWwxloq7Qs2eia4OvNFxpRqeLF0HcilThlJZaq7H+TmcOPM8zmNXbR17CbIPuaaIzcxGhOiaLAJf3uoIJoC0GWJplDryBReEsLzpPKeuDGohO3exSGtQ/ex3QYEnOYjkGNsbCVqkfXT32PHbtNcjzdcbARZ2usn+EmZvWDR99MExIReWxZG68GtFAV9ByRKspK9c2OH1wHm6+prI6fs+RjDt1rVe5NpK35iJoRgttzKsNEcdbuijoyvTY2szl6DDMJuYZ05Z8QXltqbJYRD/V/DVEL/mzKEliBUwPwSOP2AmyKKFaqUNYy/YBQCF9E9k=
+  file:
+  - ArchLinuxARM-rpi-latest.img.gz
+  - ArchLinuxARM-rpi-2-latest.img.gz
+  skip_cleanup: true
+  on:
+    tags: true
