@@ -1,14 +1,16 @@
 sudo: required
-before_install:
-- sudo apt-get update -q
-- sudo apt-get install -y bsdtar dosfstools
+addons:
+  apt:
+    packages:
+    - bsdtar
+    - dosfstools
 script:
 - sudo ./build.sh ArchLinuxARM-rpi-latest
 - sudo ./build.sh ArchLinuxARM-rpi-2-latest
 deploy:
   provider: releases
   api_key:
-    secure: X8nvB8l1KJiAegH5MWa8B2FxypwFICzhVcxuZBNXZnakQRa4+dEQ4es93CxeSnDvLsSnlP89Yr0AlSGx1tJdIe/IaoNm+v0d4rOiUQ5h7AEWwfRB+E4zXG77H9pX8xcIW7AbcnWIsdxXiUPrpPBM7U+XB1uVKXxfQNoQIMlLwecLkSzAMx44OTUh62ZXFaxJnpK4xN+q70UCvLvKVMbOcM4v/tgwAqtniXKZYjTyKhndsrY/Y1OLQz+5enCNVxCobgo2wmSwwh+V/MWskWsTQgBkoUxi8EjTWbiweoCosyBrGhDvU1obsvONayYJVPvrl41nJd1S/SGQWZwLL32Vtdw4JquDcM/Xjvha9s7m0f/DWwxloq7Qs2eia4OvNFxpRqeLF0HcilThlJZaq7H+TmcOPM8zmNXbR17CbIPuaaIzcxGhOiaLAJf3uoIJoC0GWJplDryBReEsLzpPKeuDGohO3exSGtQ/ex3QYEnOYjkGNsbCVqkfXT32PHbtNcjzdcbARZ2usn+EmZvWDR99MExIReWxZG68GtFAV9ByRKspK9c2OH1wHm6+prI6fs+RjDt1rVe5NpK35iJoRgttzKsNEcdbuijoyvTY2szl6DDMJuYZ05Z8QXltqbJYRD/V/DVEL/mzKEliBUwPwSOP2AmyKKFaqUNYy/YBQCF9E9k=
+    secure: puN1b67ctptLrrMznaHVBZm6I02635lo94BX0cMxMSlph1UwjoXCjlLTV3/JgaMmD4nLMv1Ln+po22LTK/thiKblymTRQtwgksyCu8+Or0IiMYCXb58+QTmW1ROVrVVJ9nus2647UjGkTSA3n6JpH55KxFmwpcHf7N/xWvOhRyLWmGdPRwyoqilWoAptsZYIXsucJv6suI3whlx/hfMDyNQKt0BGUNE+WerMg+obY5c4dgjb/0Kt8HheEtQ1fb6qUeoxN93JYOYX4LZldFwwXV77X1ce7yEzhGtAryhUZBKfC0+Axc2zy/Jvg192B0E427ZU/D0xpT8Wnk0MOyakSBL9I3D2PYq9NNM+uNwPo6g7u+WVtL5nVXrgJRxVa4pLpTooRD1Iy5Sv+YIfOevrWj9kkC4KAqv0qsiUBYIiq9pZ8LYZR04QR8p/P/Ns9qnEUuF7hqfnoIlKn00wd8gJZsdzDk5sz5yMlBnoQip4cyBWpY2CbyVxBinYML+crv7gw4X+99ufidzrKNalg8PPeQEgqby3ehTuvGBzFZHs1J6y1frkMbx0krTjh7lhdbrt1rXanXllZe9pxhwcL9iYXwydx+U6Vnvidx4wSXgrg24e7i87lKubvaXOdlx6sbsRcFXVGDoMj18wLDbHTLwyzTBHM9t85Y8+2+KtOxIrgvc=
   file:
   - ArchLinuxARM-rpi-latest.img.gz
   - ArchLinuxARM-rpi-2-latest.img.gz
