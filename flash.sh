@@ -1,19 +1,21 @@
 #!/bin/bash
 #
-# flash image to device
+# flash zipped (bz2/gz/xz) image to device
 #
 
 set -e
+shopt -s nullglob
 
 if [[ $(uname -s) != "Darwin" ]]
 then
     echo "Only support MacOSX!"
-    exit 4
+    exit 5
 fi
 
 flash() {
     local IMG=${1?:image is missing}
     local DEV=${2?:device is missing}
+    local CMD=gzip
 
     if [[ ! -f $IMG ]]
     then
@@ -32,7 +34,22 @@ flash() {
     sleep 2
 
     echo "+++ write $IMG => $DEV"
-    gzip -cd $IMG | pv | sudo dd of=/dev/r${DEV#/dev/} bs=32m
+    case $IMG in
+        *.img.bz2)
+            CMD=bz2
+            ;;
+        *.img.gz)
+            CMD=gzip
+            ;;
+        *.img.xz)
+            CMD=xz
+            ;;
+        *)
+            echo "Bad image format!"
+            exit 4
+            ;;
+    esac
+    $CMD -cd $IMG | pv | sudo dd of=/dev/r${DEV#/dev/} bs=32m
     sleep 2
 
     echo "+++ eject $DEV"
@@ -41,7 +58,7 @@ flash() {
 }
 
 main() {
-    local IMAGES=($(ls *.img.gz))
+    local IMAGES=(*.img.bz2 *.img.gz *.img.xz)
     local DEVICES=($(diskutil list | awk '/\(external, physical\):$/ {print $1}'))
     local IMG DEV
 
@@ -56,7 +73,7 @@ main() {
     select IMG in "${IMAGES[@]}"
     do
         case $IMG in
-            *.img.gz)
+            *.img.*)
                 break
                 ;;
             *)
@@ -92,7 +109,7 @@ main() {
     echo "IMG: $IMG"
     echo "DEV: $DEV"
     echo
-    read -p 'Do you want to continue? (Y/[N]): ' ANSWER
+    read -p 'Do you want to continue? (y/N): ' ANSWER
 
     if [[ $ANSWER == [Yy] ]]
     then
