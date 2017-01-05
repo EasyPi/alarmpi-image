@@ -4,12 +4,14 @@
 #
 # - http://archlinuxarm.org/platforms/armv6/raspberry-pi
 # - http://archlinuxarm.org/platforms/armv7/broadcom/raspberry-pi-2
+# - http://archlinuxarm.org/platforms/armv8/broadcom/raspberry-pi-3
 #
 
 set -xe
 
 NAME=${1:-ArchLinuxARM-rpi-latest}
 #NAME=ArchLinuxARM-rpi-2-latest
+#NAME=ArchLinuxARM-rpi-3-latest
 
 echo '################## download image #######################'
 
