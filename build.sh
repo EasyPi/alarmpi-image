@@ -24,7 +24,7 @@ fi
 
 echo '################## install softwares ####################'
 
-which mkfs.vfat || apt install -y bsdtar dosfstools
+which mkfs.vfat || apt install -y dosfstools
 
 echo '################## make partitions ######################'
 
@@ -80,7 +80,7 @@ mount -v -t ext4 ${LOOP}p2 root
 
 echo '################## copy files ###########################'
  
-bsdtar -xpf ${NAME}.tar.gz -C root
+tar xzf ${NAME}.tar.gz -C root
 sync
 mv root/boot/* boot
 
