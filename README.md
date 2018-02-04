@@ -53,9 +53,9 @@ resize2fs /dev/mmcblk0p2
 - [ ] locale
 - [ ] timezone
 
-[1]: https://github.com/EasyPi/alarmpi-image/releases/download/2018.01.01/ArchLinuxARM-rpi-latest.img.gz
-[2]: https://github.com/EasyPi/alarmpi-image/releases/download/2018.01.01/ArchLinuxARM-rpi-2-latest.img.gz
-[3]: https://github.com/EasyPi/alarmpi-image/releases/download/2018.01.01/ArchLinuxARM-rpi-3-latest.img.gz
+[1]: https://github.com/EasyPi/alarmpi-image/releases/download/2018.02.01/ArchLinuxARM-rpi-latest.img.gz
+[2]: https://github.com/EasyPi/alarmpi-image/releases/download/2018.02.01/ArchLinuxARM-rpi-2-latest.img.gz
+[3]: https://github.com/EasyPi/alarmpi-image/releases/download/2018.02.01/ArchLinuxARM-rpi-3-latest.img.gz
 [4]: http://archlinuxarm.org/platforms/armv6/raspberry-pi
 [5]: http://archlinuxarm.org/platforms/armv7/broadcom/raspberry-pi-2
 [6]: http://archlinuxarm.org/platforms/armv7/broadcom/raspberry-pi-3
