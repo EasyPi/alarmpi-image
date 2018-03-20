@@ -7,7 +7,7 @@ addons:
 script:
 - sudo ./build.sh ArchLinuxARM-rpi-latest
 - sudo ./build.sh ArchLinuxARM-rpi-2-latest
-- sudo ./build.sh ArchLinuxARM-rpi-3-latest
+# sudo ./build.sh ArchLinuxARM-rpi-3-latest
 deploy:
   provider: releases
   api_key:
