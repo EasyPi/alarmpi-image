@@ -34,7 +34,7 @@ echo '################## make partitions ######################'
 # 100M == 104857600B  == 204800S
 
 # Method 1
-dd if=/dev/zero of=${NAME}.img bs=1024 count=$((1024*1024))
+dd if=/dev/zero of=${NAME}.img bs=1024 count=$((2*1024*1024))
 
 # Method 2
 #fallocate -l 1G ${NAME}.img
@@ -45,7 +45,7 @@ n
 p
  
  
-+100M
++200M
 t
 c
 n
