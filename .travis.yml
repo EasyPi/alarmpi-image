@@ -8,6 +8,7 @@ script:
 - sudo ./build.sh ArchLinuxARM-rpi-latest
 - sudo ./build.sh ArchLinuxARM-rpi-2-latest
 # sudo ./build.sh ArchLinuxARM-rpi-3-latest
+- sudo ./build.sh ArchLinuxARM-rpi-4-latest
 deploy:
   provider: releases
   api_key:
@@ -16,6 +17,7 @@ deploy:
   - ArchLinuxARM-rpi-latest.img.gz
   - ArchLinuxARM-rpi-2-latest.img.gz
   # ArchLinuxARM-rpi-3-latest.img.gz
+  - ArchLinuxARM-rpi-4-latest.img.gz
   skip_cleanup: true
   on:
     tags: true

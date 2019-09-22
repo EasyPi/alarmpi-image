@@ -5,6 +5,7 @@
 # - http://archlinuxarm.org/platforms/armv6/raspberry-pi
 # - http://archlinuxarm.org/platforms/armv7/broadcom/raspberry-pi-2
 # - http://archlinuxarm.org/platforms/armv8/broadcom/raspberry-pi-3
+# - http://archlinuxarm.org/platforms/armv8/broadcom/raspberry-pi-4
 #
 
 set -xe
@@ -12,10 +13,11 @@ set -xe
 NAME=${1:-ArchLinuxARM-rpi-latest}
 #NAME=ArchLinuxARM-rpi-2-latest
 #NAME=ArchLinuxARM-rpi-3-latest
+#NAME=ArchLinuxARM-rpi-4-latest
 
 echo '################## download image #######################'
 
-wget http://archlinuxarm.org/os/${NAME}.tar.gz
+wget http://os.archlinuxarm.org/os/${NAME}.tar.gz
 
 if ! curl -sSL http://archlinuxarm.org/os/${NAME}.tar.gz.md5 | md5sum -c
 then
