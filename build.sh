@@ -82,7 +82,7 @@ mount -v -t ext4 ${LOOP}p2 root
 
 echo '################## copy files ###########################'
  
-tar xzf ${NAME}.tar.gz -C root >/dev/null 2>&1
+tar xzf ${NAME}.tar.gz -C root . >/dev/null 2>&1
 sync
 mv root/boot/* boot
 
