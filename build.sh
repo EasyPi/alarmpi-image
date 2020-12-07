@@ -86,6 +86,10 @@ tar xzf ${NAME}.tar.gz -C root . >/dev/null 2>&1
 sync
 mv root/boot/* boot
 
+if [ $NAME == "ArchLinuxARM-rpi-aarch64-latest" ]; then
+    sed -i 's/mmcblk0/mmcblk1/g' root/etc/fstab
+fi
+
 umount boot root
 rmdir boot root
 partx -d ${LOOP}
@@ -93,6 +97,7 @@ losetup -d ${LOOP}
 
 echo '################## make image ###########################'
 
+zip ${NAME}.img.zip ${NAME}.img
 gzip ${NAME}.img
 chmod a+rw ${NAME}.img.gz
 
